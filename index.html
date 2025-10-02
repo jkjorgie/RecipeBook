@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recipe Book</title>
+    <link rel="icon" href="./assets/images/recipe-book.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="band">
+        <div class="container brand">
+            <a class="site-logo" href="/">
+                <img src="./assets/images/recipe-book.svg" alt="Recipe Book logo" class="logo-icon" />
+            </a>
+            <a class="site-title" href="/">Recipe Book</a>
+            <a class="home-link" href="/">Home</a>
+        </div>
+    </header>
+
+    <!-- Hero Image -->
+    <section class="hero">
+        <img src="https://picsum.photos/1200/400?food" alt="Delicious food assortment" />
+    </section>
+
+    <!-- Main Content -->
+    <main id="main" class="band">
+        <div class="container">
+            <!-- Search Panel -->
+            <section class="search-panel" id="search">
+                <div class="container">
+                    <h2 class="search-title">Find your next recipe</h2>
+                    <form class="search" action="#" method="get">
+                        <div class="fields">
+                            <div>
+                                <label for="q">Keyword</label>
+                                <input id="q" name="q" type="text" placeholder="e.g., tacos, pasta bake, brownies" />
+                            </div>
+                            <div>
+                                <label for="ingredient">Ingredient</label>
+                                <input id="ingredient" name="ingredient" type="text"
+                                    placeholder="e.g., chicken, chickpeas, basil" />
+                            </div>
+                            <div>
+                                <label for="recent">Recent searches</label>
+                                <select id="recent" name="recent">
+                                    <option value="" selected disabled>Choose a recent search…</option>
+                                    <option>chicken thighs crispy</option>
+                                    <option>vegetarian chili</option>
+                                    <option>gluten-free brownies</option>
+                                </select>
+                            </div>
+                            <button class="btn" type="submit">Search</button>
+                        </div>
+                        <p class="hint subtle">Tip: Combine a keyword and an ingredient for tighter results.</p>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Results -->
+            <section id="results">
+                <div class="section-header">
+                    <h2 class="section-title">Search results</h2>
+                    <span class="subtle">Showing 5 placeholder recipes</span>
+                </div>
+
+                <div class="card-grid card-grid--five-wide">
+                    <!-- Five placeholder cards -->
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=1" alt="Placeholder dish 1" />
+                        <div class="card-body">
+                            <h3 class="card-title">Herbed Lemon Chicken</h3>
+                        </div>
+                    </article>
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=2" alt="Placeholder dish 2" />
+                        <div class="card-body">
+                            <h3 class="card-title">Creamy Mushroom Pasta</h3>
+                        </div>
+                    </article>
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=3" alt="Placeholder dish 3" />
+                        <div class="card-body">
+                            <h3 class="card-title">Roasted Veggie Bowl</h3>
+                        </div>
+                    </article>
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=4" alt="Placeholder dish 4" />
+                        <div class="card-body">
+                            <h3 class="card-title">Spicy Shrimp Tacos</h3>
+                        </div>
+                    </article>
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=5" alt="Placeholder dish 5" />
+                        <div class="card-body">
+                            <h3 class="card-title">Classic Beef Stew</h3>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Suggestions -->
+            <section id="suggestions">
+                <div class="section-header">
+                    <h2 class="section-title">Suggested for you</h2>
+                    <span class="subtle">Three ideas to try</span>
+                </div>
+
+                <div class="card-grid">
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=6" alt="Suggested dish 1" />
+                        <div class="card-body">
+                            <h3 class="card-title">Caprese Stuffed Chicken</h3>
+                        </div>
+                    </article>
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=7" alt="Suggested dish 2" />
+                        <div class="card-body">
+                            <h3 class="card-title">Smoky Lentil Chili</h3>
+                        </div>
+                    </article>
+                    <article class="card" tabindex="0">
+                        <img class="card-media" src="https://picsum.photos/640/400?random=8" alt="Suggested dish 3" />
+                        <div class="card-body">
+                            <h3 class="card-title">Garlic Butter Salmon</h3>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="band">
+        <div class="container">
+            <p style="margin:.25rem 0 0">Jay Jorgensen • WDD 330 • 10/1/2025</p>
+            <p style="margin:.25rem 0 0">
+                <a href="https://www.flaticon.com/free-icons/recipe-book" title="recipe book icons">Recipe book icons
+                    created by nawicon - Flaticon</a>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
