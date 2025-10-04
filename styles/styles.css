@@ -170,9 +170,19 @@ select:focus {
     background: var(--color-brown);
     color: var(--color-text);
     font-weight: 700;
+    font-size: 1rem;
     cursor: pointer;
     transition: transform .15s ease, background-color .15s ease, color .15s ease, box-shadow .12s ease;
 }
+
+/*button.btn-search {
+    background: var(--color-sun);
+}*/
+
+/*button.btn-search:hover,
+button.btn-search:hover {
+    background: var(--color-sky);
+}*/
 
 .btn:hover,
 .btn:focus-visible {
