@@ -259,6 +259,12 @@ button.btn-search:hover {
     font-weight: 700;
 }
 
+.card-title,
+.card-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
 footer.band {
     background: var(--color-brown);
     color: var(--color-text);
@@ -278,3 +284,24 @@ footer a:focus-visible {
 .subtle {
     color: #444;
 }
+
+.hero {
+    /*overflow: hidden;*/
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /*clip-path: inset(50% 0 0 0);*/
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+/*.hero {
+    height: 40vh;
+    background-image: url("./assets/images/hero.jpg");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: auto 200%;
+  }*/
