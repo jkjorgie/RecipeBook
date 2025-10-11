@@ -1,6 +1,5 @@
 const DEFAULT_TIMEOUT_MS = 12000;
-const RAPIDAPI_HOST = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"; // keep as-is on RapidAPI
-
+const RAPIDAPI_HOST = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 export class SpoonacularAPI {
   /**
    * @param {object} opts
@@ -20,6 +19,10 @@ export class SpoonacularAPI {
 
   async _get(path, query = {}) {
     const url = new URL(this.base + path);
+
+    //console.log(`url:${url}`);
+    //console.log(`headers:${this.headers["X-RapidAPI-Host"]}/${this.headers["X-RapidAPI-Key"]}`);
+
     Object.entries(query).forEach(([k, v]) => {
       if (v !== undefined && v !== null && String(v).trim() !== "") {
         url.searchParams.set(k, v);
@@ -65,17 +68,26 @@ export class SpoonacularAPI {
       sort: "popularity",
     });
 
-    console.log(data.results);
+    //console.log(data.results);
 
     return (data?.results || []).map(this.normalizeRecipe);
   }
 
-  /**
-   * Get random recipes
-   */
   async randomRecipes({ number = 5 }) {
     const data = await this._get("/recipes/random", { number });
     return (data?.recipes || []).map(this.normalizeRecipe);
+  }
+
+  async similarRecipes({ id, number = 5 }) {
+    if (!id) throw new Error("similarRecipes requires an id");
+    const data = await this._get(`/recipes/${id}/similar`, { number });
+
+    return (data || []).map((r) => ({
+      id: r.id,
+      title: r.title,
+      image: `https://spoonacular.com/recipeImages/${r.id}-556x370.jpg`,
+      url: r.sourceUrl || "", // not always present here
+    }));
   }
 
   normalizeRecipe(r) {
@@ -86,7 +98,7 @@ export class SpoonacularAPI {
       image: r.image,
       url: r.sourceUrl,
       aggregate_likes: r.aggregateLikes,
-      instructions: r.instructions,
+      instructions: r.analyzedInstructions,
       cheap: r.cheap,
       cooking_minutes: r.cooking_minutes,
       ready_in_minutes: r.readyInMinutes,
@@ -95,6 +107,8 @@ export class SpoonacularAPI {
       servings: r.servings,
       summary: r.summary,
       price_per_serving: r.pricePerServing,
+      cuisines: r.cuisines,
+      dishTypes: r.dishTypes,
     };
   }
 }
