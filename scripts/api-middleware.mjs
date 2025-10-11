@@ -3,8 +3,8 @@ const RAPIDAPI_HOST = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 export class SpoonacularAPI {
   /**
    * @param {object} opts
-   * @param {string} opts.apiKey - Your RapidAPI key
-   * @param {number} [opts.timeoutMs] - Per-request timeout
+   * @param {string} opts.apiKey
+   * @param {number} [opts.timeoutMs]
    */
   constructor({ apiKey, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
     if (!apiKey) throw new Error("SpoonacularAPI requires a RapidAPI key.");
@@ -17,11 +17,9 @@ export class SpoonacularAPI {
     };
   }
 
+  // re-usable method to handle API call
   async _get(path, query = {}) {
     const url = new URL(this.base + path);
-
-    //console.log(`url:${url}`);
-    //console.log(`headers:${this.headers["X-RapidAPI-Host"]}/${this.headers["X-RapidAPI-Key"]}`);
 
     Object.entries(query).forEach(([k, v]) => {
       if (v !== undefined && v !== null && String(v).trim() !== "") {
@@ -47,37 +45,36 @@ export class SpoonacularAPI {
 
       return await res.json();
     } catch (err) {
-      // Friendly error surface
       if (err.name === "AbortError") {
         throw new Error("The request timed out. Please try again.");
       }
-      // Spoonacular on RapidAPI sometimes returns HTML in errors—normalize it
       throw new Error(err.message || "Network error contacting API.");
     } finally {
       clearTimeout(t);
     }
   }
 
+  // stages request for search api based on keyword and ingredient search
   async searchRecipes({ query, includeIngredients, number = 5 }) {
     const data = await this._get("/recipes/complexSearch", {
       query,
       includeIngredients,
       number,
-      addRecipeInformation: true, // adds image, sourceUrl, etc
+      addRecipeInformation: true,
       instructionsRequired: true,
       sort: "popularity",
     });
 
-    //console.log(data.results);
-
     return (data?.results || []).map(this.normalizeRecipe);
   }
 
+  // stages request for 5 random recipes to suggest to user
   async randomRecipes({ number = 5 }) {
     const data = await this._get("/recipes/random", { number });
     return (data?.recipes || []).map(this.normalizeRecipe);
   }
 
+  /* NOT IMPLEMENTED
   async similarRecipes({ id, number = 5 }) {
     if (!id) throw new Error("similarRecipes requires an id");
     const data = await this._get(`/recipes/${id}/similar`, { number });
@@ -86,12 +83,12 @@ export class SpoonacularAPI {
       id: r.id,
       title: r.title,
       image: `https://spoonacular.com/recipeImages/${r.id}-556x370.jpg`,
-      url: r.sourceUrl || "", // not always present here
+      url: r.sourceUrl || "",
     }));
-  }
+  }*/
 
+  // stage information in returned recipe as an object with easier to consume property names, regardless of the api that returned the recipe
   normalizeRecipe(r) {
-    // Normalize fields for the UI renderer
     return {
       id: r.id,
       title: r.title,
