@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recipe Details • Recipe Book</title>
+    <link rel="icon" href="./assets/images/recipe-book.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script type="module" src="./scripts/recipe.js"></script>
+</head>
+
+<body>
+    <header class="band">
+        <div class="container brand">
+            <a class="site-logo" href="/">
+                <img src="./assets/images/recipe-book.svg" alt="Recipe Book logo" class="logo-icon" />
+            </a>
+            <a class="site-title" href="/">Recipe Book</a>
+            <a class="home-link" href="./index.html">Return to Search</a>
+        </div>
+    </header>
+
+    <main id="main" class="band">
+        <div class="container">
+            <section id="recipe-detail" class="search-panel">
+                <div class="container">
+                    <h2 class="search-title" id="recipe-title">Loading…</h2>
+                    <div id="recipe-hero" style="margin:1rem 0;">
+                        <img id="recipe-hero-img">
+                    </div>
+                    <div id="recipe-meta" class="subtle">
+                        <p id="recipe-meta-p"></p>
+                    </div>
+                    <div id="recipe-summary"></div>
+                    <div id="recipe-ingredients">
+                        <h3>Ingredients</h3>
+                        <ul id="recipe-ingredients-ul"></ul>
+                    </div>
+                    <div id="recipe-equipment">
+                        <h3>Equipment</h3>
+                        <ul id="recipe-equipment-ul"></ul>
+                    </div>
+                    <div id="recipe-instructions" style="margin-top:1rem;">
+                        <h3>Instructions</h3>
+                        <ol id="recipe-instructions-ol"></ol>
+                    </div>
+                    <div id="credit" class="subtle">
+                        <p id="recipe-credit-p"></p>
+                        <a id="recipe-credit-a"></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- <section id="similar">
+                <div class="section-header">
+                    <h2 class="section-title">Similar recipes</h2>
+                    <span class="subtle">You might also like</span>
+                </div>
+                <div class="card-grid card-grid--five-wide" id="similar-grid"></div>
+            </section> -->
+        </div>
+    </main>
+
+    <footer class="band">
+        <div class="container spread-elements">
+            <div class="left-footer">
+                <p style="margin:.25rem 0 0">Jay Jorgensen • WDD 330 • 10/10/2025</p>
+            </div>
+            <div class="right-footer">
+                <p style="margin:.25rem 0 0">
+                    <a href="https://www.flaticon.com/free-icons/recipe-book" title="recipe book icons">Recipe book
+                        icons
+                        created by nawicon - Flaticon</a>
+                </p>
+                <p><a href="https://www.pexels.com/photo/composition-of-spoonfuls-with-various-spices-4199098/"
+                        title="hero image">Hero image by Kaboompics.com</p>
+                <p><a href="https://www.pexels.com/photo/flatlay-photography-of-white-ceramic-bowl-2611817/"
+                        title="placeholder plate image">Empty plate imge by Anna Tukhfatullina</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
