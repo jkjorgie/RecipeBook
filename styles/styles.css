@@ -5,6 +5,7 @@
     --color-sage: #A8B7AB;
     --color-sky: #9BBEC7;
     --color-text: #111111;
+    --color-sky-rgb: 58 160 255;
 
     --max-width: 1200px;
     --radius: 16px;
@@ -105,7 +106,7 @@ main {
 
 .search-panel {
     background: linear-gradient(180deg, #fff, #fff 60%, rgba(155, 190, 199, .25));
-    border: 1px solid color-mix(in oklab, var(--color-sage) 35%, #000 0%);
+    border: 1px solid var(--color-sage);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
@@ -158,14 +159,14 @@ select {
     min-width: 0;
     padding: .7rem .8rem;
     border-radius: 10px;
-    border: 1px solid color-mix(in oklab, var(--color-sage) 45%, #000 0%);
+    border: 1px solid var(--color-sage);
     background: #fff;
 }
 
 input[type="text"]:focus,
 select:focus {
     border-color: var(--color-sky);
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-sky) 25%, transparent 75%);
+    box-shadow: 0 0 0 3px rgb(var(--color-sky-rgb) / 0.25);
 }
 
 .btn {
@@ -223,7 +224,7 @@ select:focus {
 }
 
 .card {
-    border: 1px solid color-mix(in oklab, var(--color-sage) 35%, #000 0%);
+    border: 1px solid var(--color-sage);
     border-radius: var(--radius);
     overflow: hidden;
     background: #fff;
